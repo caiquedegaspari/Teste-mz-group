@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  postgres:
+    container_name: app-postgres
+    image: 'bitnami/postgresql'
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRESQL_USERNAME=docker
+      - POSTGRESQL_PASSWORD=docker
+      - POSTGRESQL_DATABASE=app
+    volumes:
+      - 'postgresql_data:/bitnami/postgresql'
+    networks:
+      - base
+
+  mz-test-api:
+    container_name: mz-test-api
+    image: node:16.13.2
+    command: yarn start
+    depends_on:
+      - postgres
+    working_dir: /app
+    ports:
+      - 4000:4000
+    volumes:
+      - ./backend/:/app
+    networks:
+      - base
+
+  mz-test-client:
+    image: node
+    ports:
+      - "3000:3000"
+    command: sh -c "yarn start"
+    working_dir: /app
+    stdin_open: true
+    volumes:
+      - ./mz-test-frontend/:/app
+
+networks:
+  base:
+volumes:
+  postgresql_data:
+    driver: local
