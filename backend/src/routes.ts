@@ -1,11 +1,14 @@
-import { Response, Router } from "express";
-import { FirstUseCase } from "./useCases/first-usecase";
-import { FirstUsecaseController } from "./useCases/first-usecase.controller";
+import { Request, Response, Router } from "express";
+import { UploadSalesFileController } from "./controllers/uploadSalesFile.controller";
+import multer from 'multer'
 
 const router = Router()
 
-const firstUsecaseController = new FirstUsecaseController()
+const uploadSellsFileController = new UploadSalesFileController()
 
-router.get('/api', firstUsecaseController.handle)
+const storage = multer.memoryStorage()
+const upload = multer({ storage })
+
+router.post("/uploadFile", upload.single("sellsFile"), uploadSellsFileController.handle);
 
 export { router }
