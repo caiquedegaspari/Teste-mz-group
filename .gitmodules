@@ -1,0 +1,3 @@
+[submodule "mz-test-frontend"]
+	path = mz-test-frontend
+	url = https://github.com/caiquedegaspari/teste-mz-front
