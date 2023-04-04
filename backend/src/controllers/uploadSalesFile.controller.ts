@@ -1,9 +1,11 @@
 import { Request, Response } from "express";
 import { ParseTextFromSalesFileUseCase } from "../useCases/parseTextFromSalesFile.usecase";
+import { SalesHistoryRepository } from "../repositories/implementations/SalesHistory.repository";
 
 export class UploadSalesFileController {
   async handle(request: Request, response: Response) {
-    const uploadSalesFileUseCase = new ParseTextFromSalesFileUseCase()
+    const salesHistoryRepository = new SalesHistoryRepository()
+    const uploadSalesFileUseCase = new ParseTextFromSalesFileUseCase(salesHistoryRepository)
     const file = request.file;
 
     if (!file) { 
