@@ -52,19 +52,12 @@ export class ParseTextFromSalesFileUseCase {
     return parsedSalesHistory
   }
 
-  async execute(textFromFile: string): Promise<SalesHistory> {
+  async execute(textFromFile: string): Promise<SalesHistory[]> {
     if (textFromFile.length === 0) throw new Error('Invalid Params')
 
     const parsedSalesHistory = this.parseStringToSalesHistory(textFromFile)
-    await this.salesHistoryRepository.saveMany(parsedSalesHistory)
-    return Promise.resolve({
-      id: 1,
-      type: 'test',
-      date: new Date(),
-      product: 'test',
-      value: 50,
-      sellerName: 'test'
-    })
+    const newHistory = await this.salesHistoryRepository.saveMany(parsedSalesHistory)
+    return newHistory
   }
 
 }
