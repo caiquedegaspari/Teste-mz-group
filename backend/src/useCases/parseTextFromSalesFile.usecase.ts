@@ -11,7 +11,7 @@ export class ParseTextFromSalesFileUseCase {
   private startProductLength = 26
   private endProductLength = 55
   private startValueLength = 56
-  private endValueLength = 65
+  private endValueLength = 66
   private startSellerLength = 66
   private endSellerLength = 85
 
@@ -43,7 +43,7 @@ export class ParseTextFromSalesFileUseCase {
       const salesHistory: SalesHistory = {
         type: this.checkSalesType(+type),
         date: new Date(date),
-        product,
+        product: product.trimEnd(),
         value: +value,
         sellerName,
       }
@@ -56,7 +56,7 @@ export class ParseTextFromSalesFileUseCase {
     if (textFromFile.length === 0) throw new Error('Invalid Params')
 
     const parsedSalesHistory = this.parseStringToSalesHistory(textFromFile)
-    this.salesHistoryRepository.saveMany(parsedSalesHistory)
+    await this.salesHistoryRepository.saveMany(parsedSalesHistory)
     return Promise.resolve({
       id: 1,
       type: 'test',
