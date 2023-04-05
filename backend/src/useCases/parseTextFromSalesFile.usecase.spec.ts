@@ -5,6 +5,8 @@ const salesHistoryRepository: ISalesHistoryRepository = {
   saveMany: jest.fn()
 }
 
+const textFromFileExample = "12022-01-15T19:20:30-03:00CURSO DE BEM-ESTAR            0000012750JOSE CARLOS\n12021-12-03T11:46:02-03:00DOMINANDO INVESTIMENTOS       0000050000MARIA CANDIDA\n"
+
 let sut: ParseTextFromSalesFileUseCase
 
 beforeEach(() => {
@@ -18,7 +20,7 @@ describe('Test ParseTextFromSalesFileUseCase', () => {
 
   it('Should parse string param to SalesHistory array', async () => {
     const parseSalesHistory = jest.spyOn(sut, 'parseStringToSalesHistory')
-    const result = sut.parseStringToSalesHistory("12022-01-15T19:20:30-03:00CURSO DE BEM-ESTAR            0000012750JOSE CARLOS\n12021-12-03T11:46:02-03:00DOMINANDO INVESTIMENTOS       0000050000MARIA CANDIDA")
+    const result = sut.parseStringToSalesHistory(textFromFileExample)
     
     expect(parseSalesHistory).toHaveBeenCalledTimes(1)
     expect(result).toEqual([
@@ -41,7 +43,7 @@ describe('Test ParseTextFromSalesFileUseCase', () => {
 
   it('Should return nothing when parsing a empty string to SellersHistory array', async () => {
     const parseSalesHistory = jest.spyOn(sut, 'parseStringToSalesHistory')
-    const result = sut.parseStringToSalesHistory("12022-01-15T19:20:30-03:00CURSO DE BEM-ESTAR            0000012750JOSE CARLOS\n12021-12-03T11:46:02-03:00DOMINANDO INVESTIMENTOS       0000050000MARIA CANDIDA\n")
+    const result = sut.parseStringToSalesHistory(textFromFileExample)
     
     expect(parseSalesHistory).toHaveBeenCalledTimes(1)
     expect(result).toEqual([
@@ -78,7 +80,7 @@ describe('Test ParseTextFromSalesFileUseCase', () => {
 
   it('Should parse params and call repository to save sales history', () => {
     const parseSalesHistory = jest.spyOn(salesHistoryRepository, 'saveMany')
-    sut.execute("12022-01-15T19:20:30-03:00CURSO DE BEM-ESTAR            0000012750JOSE CARLOS\n12021-12-03T11:46:02-03:00DOMINANDO INVESTIMENTOS       0000050000MARIA CANDIDA")
+    sut.execute(textFromFileExample)
     expect(parseSalesHistory).toHaveBeenCalled()
   })
 
