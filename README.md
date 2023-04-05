@@ -11,6 +11,8 @@ Second step was to read the description of the application rules, gather the max
 
 In the third step I decided to add the first real route to the application, the upload sales file route, configure multer to receive a txt file and prepare a usecase to deal with the data that will be received from the uploaded file.
 
-Fourth step was add initial Jest Setup to allow tests inside our application
+Fourth step was add initial Jest Setup to allow tests inside our application.
 
-Fifth step was create the interface of the first repository inside the application and create the first entity to represent what the parsed File should look like in the Database
+Fifth step was create the interface of the first repository inside the application and create the first entity to represent what the parsed File should look like in the Database.
+
+Sixth step was code the first rules inside the parseTextFromSalesFile use case, rules to prepare the data to be sent to api, and write tests to it.
