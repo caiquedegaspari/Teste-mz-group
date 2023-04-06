@@ -9,6 +9,6 @@ const uploadSellsFileController = new UploadSalesFileController()
 const storage = multer.memoryStorage()
 const upload = multer({ storage })
 
-router.post("/uploadFile", upload.single("sellsFile"), uploadSellsFileController.handle);
+router.post("/uploadFile", upload.single("salesFile"), uploadSellsFileController.handle);
 
 export { router }
