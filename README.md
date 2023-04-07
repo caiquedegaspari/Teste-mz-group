@@ -6,17 +6,21 @@ Technologies: NodeJS, Typescript, Express, Prisma.IO, PostgreSQL, ReactJS, CSS, 
 
 To run this project:
 
-  1 - Clone this project.
+  1 - Clone this project with --recursive flag (git clone https://github.com/caiquedegaspari/teste-mz-group.git --recursive).
   
   2 - Run yarn command in client and api repositories to install node_modules.
   
-  3 - run docker-compose up (if you don't have docker-compose you need to install it in your computer (https://docs.docker.com/compose/install/).
+  3 - Add .env in client/api following .env.example.
   
-  4 - To create the connection between the api and the database you need to create a connection in a database administration tool(DBeaver is the one a     choose).
+  4 - To create the connection between the api and the database you need to create a connection in a database administration tool(DBeaver is the one a     choose, you can use the default options inside .env-example).
   
-  5 - follow the example in .env.example to create a database connetion.
+  5 -ensure that the ports: 3000/4000/5432 are not in use by other docker containers or else
   
-  6 - run yarn migrate:dev in terminal.
+  6 - run docker-compose up (if you don't have docker-compose you need to install it in your computer (https://docs.docker.com/compose/install/).
+  
+  7 - run yarn migrate:dev in terminal.
+  
+  8 - Ready to use in localhost:3000
 
 This is a challenge by Coodesh
 
