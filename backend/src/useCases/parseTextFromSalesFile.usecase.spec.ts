@@ -1,9 +1,5 @@
-import { ISalesHistoryRepository } from "../repositories/ISalesHistory.repository"
+import { salesHistoryRepositoryMock as salesHistoryRepository } from "../repositories/mocks/ISalesHistory.repository-mock"
 import { ParseTextFromSalesFileUseCase } from "./parseTextFromSalesFile.usecase"
-
-const salesHistoryRepository: ISalesHistoryRepository = {
-  saveMany: jest.fn()
-}
 
 const textFromFileExample = "12022-01-15T19:20:30-03:00CURSO DE BEM-ESTAR            0000012750JOSE CARLOS\n12021-12-03T11:46:02-03:00DOMINANDO INVESTIMENTOS       0000050000MARIA CANDIDA\n"
 
