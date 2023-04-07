@@ -5,12 +5,18 @@ A project that allow a user to upload a .txt file, processData in api and return
 Technologies: NodeJS, Typescript, Express, Prisma.IO, PostgreSQL, ReactJS, CSS, HTML5.
 
 To run this project:
-  1 - Clone this project
-  2 - Run yarn command in client and api repositories to install node_modules
-  3 - run docker-compose up (if you don't have docker-compose you need to install it in your computer (https://docs.docker.com/compose/install/)
+
+  1 - Clone this project.
+  
+  2 - Run yarn command in client and api repositories to install node_modules.
+  
+  3 - run docker-compose up (if you don't have docker-compose you need to install it in your computer (https://docs.docker.com/compose/install/).
+  
   4 - To create the connection between the api and the database you need to create a connection in a database administration tool(DBeaver is the one a     choose).
-  5 - follow the example in .env.example to create a database connetion
-  6 - run yarn migrate:dev in terminal
+  
+  5 - follow the example in .env.example to create a database connetion.
+  
+  6 - run yarn migrate:dev in terminal.
 
 This is a challenge by Coodesh
 
