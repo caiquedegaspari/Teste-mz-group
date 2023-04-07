@@ -22,3 +22,5 @@ In the 3 step I decided to add the first real route to the application, the uplo
 8 step was to create controller/usecase/repository structure in api to listSales ordering by seller.
 
 9 Step was setup all front end pages/components/services, do api conections and add styling to components and pages.
+
+10 Step was to add unit tests to assure listSales usecase is working properly
