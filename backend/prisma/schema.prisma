@@ -10,3 +10,12 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model SaleHistory {
+  id         Int      @unique() @default(autoincrement())
+  date       DateTime
+  product    String
+  sellerName String
+  type       String
+  value      Int
+}
