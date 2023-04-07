@@ -9,4 +9,7 @@ export class SalesHistoryRepository implements ISalesHistoryRepository {
     })
     return true
   }
+  list(): Promise<SalesHistory[]> {
+    return prisma.saleHistory.findMany()
+  }
 }
