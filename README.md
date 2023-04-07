@@ -2,6 +2,8 @@ Teste MZ Group
 
 A project that allow a user to upload a .txt file, processData in api and return it to front-end in a sorted list 
 
+Presentation Link: https://www.loom.com/share/dec5293b64b84c4aa64b5cf83b78ee6f
+
 Technologies: NodeJS, Typescript, Express, Prisma.IO, PostgreSQL, ReactJS, CSS, HTML5.
 
 To run this project:
